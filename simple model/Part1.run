@@ -1,0 +1,17 @@
+# Reset the AMPL Environment
+reset;
+
+#Load The Model
+model Part1.mod;
+
+#Data
+data Part1.dat;
+
+#Change the solver
+option solver cplex ;
+
+#Solve
+solve;
+
+#Show Results
+display k,{i in N1 , j in N1}x[i,j], {i in N2} u[i], {i in N2}v[i],z ;
