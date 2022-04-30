@@ -1,0 +1,29 @@
+# Reset the AMPL Environment
+reset;
+
+#Load The Model
+model Part2.mod;
+
+#Data
+data Part2.dat;
+
+#Change the solver
+option solver cplex ;
+
+#Solve
+solve;
+
+#Show Results
+display {i in N, j in N , r in R}x[i,j,r],z, {i in N, j in N}m[i,j];
+
+display {i in N, j in N, r in R} p[2,4,i,j,r];
+
+display {i in N} t[2,4,i];
+
+#display { r in R,i in N,j in N}: u[i,j,r];
+
+#display m[2,5];
+
+#display {o in N, d in N: o<>1}: p[o,d,1,4,1];
+
+#display {s in SS}: POW[s];
